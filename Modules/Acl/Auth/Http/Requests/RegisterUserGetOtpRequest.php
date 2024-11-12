@@ -5,7 +5,7 @@ namespace Modules\Acl\Auth\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Base\Rules\IranMobileNumber;
 
-class RegisterUserRequest extends FormRequest
+class RegisterUserGetOtpRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class RegisterUserRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'first_name' => ['required', 'string', 'max:30'],
+            'last_name' => ['required', 'string', 'max:30'],
             'phone_number' => ['required' , 'unique:users,phone_number' , new IranMobileNumber],
-            'otp' => ['required' , 'numeric']
         ];
     }
 }
