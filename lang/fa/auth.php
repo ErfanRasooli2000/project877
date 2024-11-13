@@ -22,5 +22,8 @@ return [
     "otp_has_expired" => "کد ارسالی وجود ندارد یا منقضی شده است.",
     "otp_is_wrong" => "کد ارسالی اشتباه است.",
     "register_successfully" => "حساب شما با موفقیت ایجاد شد.",
-    "has_already_register" => "شما قبلا ثبت نام کرده اید."
+    "has_already_register" => "شما قبلا ثبت نام کرده اید.",
+    "otp_login_code_send_successfully" => "کد ورود با موفقیت ارسال شد.",
+    "login_successfully" => "با موفقیت وارد شدید.",
+    'logged_out' => 'با موفقیت خارج شدید.',
 ];

@@ -2,6 +2,7 @@
 
 namespace Modules\Acl\Auth\Services;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Modules\UserManagement\Users\Database\Repositories\Contracts\UserRepositoryInterface;
@@ -68,6 +69,58 @@ class AuthService
                 'token' => $user->createToken('main')->plainTextToken,
                 'user' => new UserDataResource($user),
             ],
+        ];
+    }
+
+    public function sendLoginCode(string $phoneNumber) :array
+    {
+        Cache::forget('otp_login_' . $phoneNumber);
+
+        $otp = rand(100000, 999999);
+
+        Cache::remember('otp_login_' . $phoneNumber , 180 , function () use ($otp) {
+            return $otp;
+        });
+
+        return [
+            'status' => true,
+            'message' => __('auth.otp_login_code_send_successfully'),
+            'data' => ['code' => $otp],
+        ];
+    }
+
+    public function login(array $data) :array
+    {
+        $otp = Cache::get('otp_login_' . $data['phone_number']);
+
+        if (is_null($otp) || $otp != $data['otp']) {
+            return [
+                'status' => false,
+                'message' => __('auth.otp_has_expired'),
+            ];
+        }
+
+        $user = $this->userRepository->findByFieldOrFail("phone_number", $data['phone_number']);
+
+        return [
+            'status' => true,
+            'message' => __('auth.login_successfully'),
+            'data' => [
+                'token' => $user->createToken('main')->plainTextToken,
+                'user' => new UserDataResource($user),
+            ],
+        ];
+    }
+
+    public function logout()
+    {
+        $user = Auth::user();
+
+        $user->currentAccessToken()->delete();
+
+        return [
+            'status' => true,
+            'message' => __('auth.logged_out')
         ];
     }
 }
