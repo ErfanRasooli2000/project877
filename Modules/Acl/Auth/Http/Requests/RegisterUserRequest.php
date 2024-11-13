@@ -27,4 +27,11 @@ class RegisterUserRequest extends FormRequest
             'otp' => ['required' , 'numeric']
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'phone_number.unique' => __('auth.has_already_register')
+        ];
+    }
 }
