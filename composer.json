@@ -8,7 +8,15 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "aws/aws-sdk-php": "^3.324",
+        "hekmatinasser/verta": "^8.4",
+        "php-ffmpeg/php-ffmpeg": "^1.2",
+        "rap2hpoutre/fast-excel": "^5.5",
+        "darkaonline/l5-swagger": "^8.6",
+        "predis/predis": "^2.2",
+        "spatie/laravel-permission": "^6.9",
+        "zircote/swagger-php": "^4.10"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -17,11 +25,7 @@
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.1",
-        "phpunit/phpunit": "^11.0.1",
-        "darkaonline/l5-swagger": "^8.6",
-        "predis/predis": "^2.2",
-        "spatie/laravel-permission": "^6.9",
-        "zircote/swagger-php": "^4.10"
+        "phpunit/phpunit": "^11.0.1"
     },
     "autoload": {
         "psr-4": {

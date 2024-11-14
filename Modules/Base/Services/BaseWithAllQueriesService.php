@@ -7,19 +7,21 @@ use Illuminate\Support\Collection;
 
 abstract class BaseWithAllQueriesService extends BaseService
 {
-    public function getAllWithPagination(): LengthAwarePaginator
+    public function getAllWithPagination(bool $trashed = false): LengthAwarePaginator
     {
         return $this->repository->getAllWithPagination(
             $this->getFiltersForALlQuery(),
-            $this->getWithsForAllQuery()
+            $this->getWithsForAllQuery(),
+            $trashed
         );
     }
 
-    public function getAllForExcel() :Collection
+    public function getAllForExcel(bool $trashed = false) :Collection
     {
         return $this->repository->getAll(
             $this->getFiltersForALlQuery(),
-            $this->getWithsForAllQuery()
+            $this->getWithsForAllQuery(),
+            $trashed
         );
     }
 

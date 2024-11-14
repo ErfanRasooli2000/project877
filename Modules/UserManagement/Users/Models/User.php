@@ -4,17 +4,20 @@ namespace Modules\UserManagement\Users\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Acl\RolePermissions\Traits\CaslAbility;
+use Modules\Base\Traits\HasScopes;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Modules\UserManagement\Users\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , CaslAbility , HasApiTokens , HasPermissions , HasRoles;
+    use HasFactory, Notifiable , CaslAbility , HasApiTokens ,
+        HasPermissions , HasRoles , SoftDeletes , HasScopes;
 
     /**
      * The attributes that are mass assignable.

@@ -3,6 +3,7 @@
 namespace Modules\UserManagement\Users\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\Base\Rules\IranMobileNumber;
 
 class UserCreateRequest extends FormRequest
 {
@@ -22,7 +23,10 @@ class UserCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name' => ['required' , 'string'],
+            'last_name' => ['required' , 'string'],
+            'phone_number' => ['required' , new IranMobileNumber , 'unique:users,phone_number'],
+            'email' => ['nullable' , 'email' , 'unique:users,email'],
         ];
     }
 }

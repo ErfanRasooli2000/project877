@@ -14,7 +14,7 @@ class UserServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        Route::prefix('api/v1')
+        Route::prefix('api/v1/users')
             ->middleware(['api' , 'auth:sanctum'])
             ->group(__DIR__ . '/../Routes/api.php');
 

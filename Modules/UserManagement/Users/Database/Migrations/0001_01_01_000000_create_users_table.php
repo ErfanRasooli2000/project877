@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->boolean('is_superadmin')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('sessions', function (Blueprint $table) {

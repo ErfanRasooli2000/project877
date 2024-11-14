@@ -30,6 +30,15 @@ class BaseRepository implements BaseRepositoryInterface
             ->insert($data);
     }
 
+    public function restore($id)
+    {
+        return $this->model
+            ->newQuery()
+            ->withTrashed()
+            ->whereId($id)
+            ->restore();
+    }
+
     public function findById($id): mixed
     {
         return $this->model

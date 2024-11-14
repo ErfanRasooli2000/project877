@@ -7,6 +7,6 @@ use Illuminate\Support\Collection;
 
 interface BaseWithAllQueriesRepositoryInterface extends BaseRepositoryInterface
 {
-    public function getAllWithPagination(array $filters = [] , array $with = []): LengthAwarePaginator;
-    public function getAll(array $filters = [] , array $with = []): Collection;
+    public function getAllWithPagination(array $filters = [] , array $with = [] , bool $trashed = false): LengthAwarePaginator;
+    public function getAll(array $filters = [] , array $with = [] , bool $trashed = false): Collection;
 }
