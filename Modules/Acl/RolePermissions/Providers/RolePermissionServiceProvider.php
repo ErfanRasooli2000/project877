@@ -10,12 +10,12 @@ class RolePermissionServiceProvider extends ServiceProvider
 {
     public function register()
     {
-
+        $this->app->register(RolePermissionServiceProvider::class);
     }
 
     public function boot()
     {
-        Route::prefix('/api/v1')
+        Route::prefix('/api/v1/role-permissions')
             ->middleware(['api' , 'auth:sanctum'])
             ->group(__DIR__ . '/../Routes/api.php');
 
