@@ -10,7 +10,7 @@ class RolePermissionServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->register(RolePermissionServiceProvider::class);
+        $this->app->register(RolePermissionRepositoryServiceProvider::class);
     }
 
     public function boot()

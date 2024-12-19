@@ -1,6 +1,7 @@
 <?php
 
 use Modules\Acl\RolePermissions\Providers\RolePermissionServiceProvider;
+use Modules\City\Providers\ProvinceServiceProvider;
 use Modules\UserManagement\Users\Providers\UserServiceProvider;
 
 return [
@@ -9,4 +10,5 @@ return [
     Spatie\Permission\PermissionServiceProvider::class,
     UserServiceProvider::class,
     RolePermissionServiceProvider::class,
+    ProvinceServiceProvider::class,
 ];
