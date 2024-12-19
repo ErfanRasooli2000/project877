@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\City\Database\Seeders\CitySeeder;
 use Modules\City\Database\Seeders\ProvinceSeeder;
-use Modules\UserManagement\Users\Database\Seeders\UserSeeder;
-use Modules\UserManagement\Users\Models\User;
+use Modules\UserManagement\Users\Database\Seeders\AdminSeeder;
+use Modules\UserManagement\Users\Models\Admin;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            UserSeeder::class,
+            AdminSeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
         ]);
