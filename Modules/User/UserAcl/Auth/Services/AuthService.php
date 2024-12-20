@@ -1,17 +1,16 @@
 <?php
 
-namespace Modules\Acl\Auth\Services;
+namespace Modules\User\UserAcl\Auth\Services;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
-use Modules\UserManagement\Users\Database\Repositories\Contracts\AdminRepositoryInterface;
-use Modules\UserManagement\Users\Http\Resources\AdminDataResource;
+use Modules\User\UserManagement\Database\Repositories\Contracts\UserRepositoryInterface;
+use Modules\User\UserManagement\Http\Resources\UserDataResource;
 
 class AuthService
 {
     public function __construct(
-        protected AdminRepositoryInterface $userRepository,
+        protected UserRepositoryInterface $userRepository,
     ){}
 
     public function sendRegisterLoginCode(array $data) :array
@@ -67,7 +66,7 @@ class AuthService
             'message' => __('auth.register_successfully'),
             'data' => [
                 'token' => $user->createToken('main')->plainTextToken,
-                'user' => new AdminDataResource($user),
+                'user' => new UserDataResource($user),
             ],
         ];
     }
@@ -107,7 +106,7 @@ class AuthService
             'message' => __('auth.login_successfully'),
             'data' => [
                 'token' => $user->createToken('main')->plainTextToken,
-                'user' => new AdminDataResource($user),
+                'user' => new UserDataResource($user),
             ],
         ];
     }

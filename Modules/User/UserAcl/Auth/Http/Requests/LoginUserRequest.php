@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Acl\Auth\Http\Requests;
+namespace Modules\User\UserAcl\Auth\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Base\Rules\IranMobileNumber;

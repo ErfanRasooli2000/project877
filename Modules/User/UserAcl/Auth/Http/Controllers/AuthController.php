@@ -1,15 +1,14 @@
 <?php
 
-namespace Modules\Acl\Auth\Http\Controllers;
+namespace Modules\User\UserAcl\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
-use Modules\Acl\Auth\Http\Requests\LoginUserGetOtpRequest;
-use Modules\Acl\Auth\Http\Requests\LoginUserRequest;
-use Modules\Acl\Auth\Http\Requests\RegisterUserGetOtpRequest;
-use Modules\Acl\Auth\Http\Requests\RegisterUserRequest;
-use Modules\Acl\Auth\Services\AuthService;
 use Modules\Base\Traits\ApiResponse;
+use Modules\User\UserAcl\Auth\Http\Requests\LoginUserGetOtpRequest;
+use Modules\User\UserAcl\Auth\Http\Requests\LoginUserRequest;
+use Modules\User\UserAcl\Auth\Http\Requests\RegisterUserGetOtpRequest;
+use Modules\User\UserAcl\Auth\Http\Requests\RegisterUserRequest;
+use Modules\User\UserAcl\Auth\Services\AuthService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AuthController extends Controller
@@ -26,8 +25,8 @@ class AuthController extends Controller
      *
      *
      * @OA\Post(
-     *     path="/api/v1/authentication/register-get-otp",
-     *     tags={"Authentication"},
+     *     path="/api/v1/users/authentication/register-get-otp",
+     *     tags={"User - Authentication"},
      *     summary="Register Send Code",
      *     description="Register Send Code",
      *     @OA\Parameter(
@@ -78,8 +77,8 @@ class AuthController extends Controller
      *
      *
      * @OA\Post(
-     *     path="/api/v1/authentication/register",
-     *     tags={"Authentication"},
+     *     path="/api/v1/users/authentication/register",
+     *     tags={"User - Authentication"},
      *     summary="Register User",
      *     description="Register User",
      *     @OA\Parameter(
@@ -129,8 +128,8 @@ class AuthController extends Controller
      *
      *
      * @OA\Post(
-     *     path="/api/v1/authentication/send-login-code",
-     *     tags={"Authentication"},
+     *     path="/api/v1/users/authentication/send-login-code",
+     *     tags={"User - Authentication"},
      *     summary="Send Login Code",
      *     description="Send Login Code",
      *     @OA\Parameter(
@@ -179,8 +178,8 @@ class AuthController extends Controller
      *
      *
      * @OA\Post(
-     *     path="/api/v1/authentication/login",
-     *     tags={"Authentication"},
+     *     path="/api/v1/users/authentication/login",
+     *     tags={"User - Authentication"},
      *     summary="login User",
      *     description="login User",
      *     @OA\Parameter(
@@ -229,8 +228,8 @@ class AuthController extends Controller
      *
      *
      * @OA\Post(
-     *     path="/api/v1/authentication/logout",
-     *     tags={"Authentication"},
+     *     path="/api/v1/users/authentication/logout",
+     *     tags={"User - Authentication"},
      *     summary="Logout User",
      *     description="Logout User",
      *     security={ {"sanctum": {} }},
