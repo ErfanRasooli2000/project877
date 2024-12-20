@@ -3,8 +3,8 @@
 namespace Modules\Admin\AdminAcl\RolePermissions\Services;
 
 use Illuminate\Database\Eloquent\Collection;
-use Modules\Acl\RolePermissions\Database\Repositories\Contracts\PermissionRepositoryInterface;
-use Modules\Acl\RolePermissions\Database\Repositories\Contracts\RoleRepositoryInterface;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Contracts\PermissionRepositoryInterface;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Contracts\RoleRepositoryInterface;
 use Modules\Base\Services\BaseService;
 use Spatie\Permission\Models\Role;
 

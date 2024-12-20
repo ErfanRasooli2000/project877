@@ -3,10 +3,10 @@
 namespace Modules\Admin\AdminAcl\RolePermissions\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Acl\RolePermissions\Database\Repositories\Contracts\PermissionRepositoryInterface;
-use Modules\Acl\RolePermissions\Database\Repositories\Contracts\RoleRepositoryInterface;
-use Modules\Acl\RolePermissions\Database\Repositories\Repos\PermissionRepository;
-use Modules\Acl\RolePermissions\Database\Repositories\Repos\RoleRepository;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Contracts\PermissionRepositoryInterface;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Contracts\RoleRepositoryInterface;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Repos\PermissionRepository;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Repos\RoleRepository;
 
 class RolePermissionRepositoryServiceProvider extends ServiceProvider
 {

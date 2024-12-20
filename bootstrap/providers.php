@@ -1,12 +1,13 @@
 <?php
 
-use Modules\Acl\RolePermissions\Providers\RolePermissionServiceProvider;
+use Modules\Admin\AdminAcl\Auth\Providers\AuthServiceProvider;
+use Modules\Admin\AdminAcl\RolePermissions\Providers\RolePermissionServiceProvider;
 use Modules\Admin\AdminManagement\Admins\Providers\AdminServiceProvider;
 use Modules\City\Providers\ProvinceServiceProvider;
 
 return [
     App\Providers\AppServiceProvider::class,
-    \Modules\Acl\Auth\Providers\AuthServiceProvider::class,
+    AuthServiceProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
     AdminServiceProvider::class,
     RolePermissionServiceProvider::class,

@@ -1,11 +1,8 @@
 <?php
 
-namespace Modules\Acl\RolePermissions\Traits;
+namespace Modules\Base\Traits;
 
-use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Str;
 
 trait CaslAbility {
 

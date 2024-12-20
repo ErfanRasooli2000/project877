@@ -4,7 +4,7 @@ namespace Modules\Admin\AdminAcl\RolePermissions\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Modules\Acl\RolePermissions\Commands\syncPermissions;
+use Modules\Admin\AdminAcl\RolePermissions\Commands\syncPermissions;
 
 class RolePermissionServiceProvider extends ServiceProvider
 {

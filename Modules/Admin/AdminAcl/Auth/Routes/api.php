@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Acl\Auth\Http\Controllers\AuthController;
+use Modules\Admin\AdminAcl\Auth\Http\Controllers\AuthController;
 
 Route::post('register-get-otp' , [AuthController::class , 'registerGetOtp']);
 

@@ -31,9 +31,9 @@ class AdminService extends BaseWithAllQueriesService
         return [];
     }
 
-    public function show(Admin $user) :Admin
+    public function show(Admin $admin) :Admin
     {
-        return $user;
+        return $admin;
     }
 
     public function create(array $inputs) :array
@@ -46,9 +46,9 @@ class AdminService extends BaseWithAllQueriesService
         ];
     }
 
-    public function update(Admin $user , array $inputs) :array
+    public function update(Admin $admin , array $inputs) :array
     {
-        $user->update($inputs);
+        $admin->update($inputs);
 
         return [
             'status' => true,
@@ -56,9 +56,9 @@ class AdminService extends BaseWithAllQueriesService
         ];
     }
 
-    public function delete(Admin $user) :array
+    public function delete(Admin $admin) :array
     {
-        $user->delete();
+        $admin->delete();
 
         return [
             'status' => true,
