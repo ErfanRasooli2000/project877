@@ -23,7 +23,7 @@ class LoginUserGetOtpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phone_number' => ['required' , 'exists:users,phone_number' , new IranMobileNumber],
+            'phone_number' => ['required',  new IranMobileNumber],
         ];
     }
 }

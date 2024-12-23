@@ -13,37 +13,28 @@ class AuthService
         protected UserRepositoryInterface $userRepository,
     ){}
 
-    public function sendRegisterLoginCode(array $data) :array
+    public function sendOtpCode(string $phoneNumber) :array
     {
+        Cache::forget('user_otp_code_' . $phoneNumber);
+
         $otp = rand(100000, 999999);
 
-        $hasSent = Cache::get('otp_for_number_' . $data['phone_number']);
-
-        if ($hasSent) {
-            return [
-                'status' => false,
-                'data' => $hasSent, // TODO : Remove THIS AFTER ADDING SMS
-                'message' => __('auth.otp_has_been_sent'),
-            ];
-        }
-
-        Cache::remember('otp_for_number_' . $data['phone_number'] , 180 , function () use ($data,$otp) {
-            $data['otp'] = $otp;
-            return $data;
+        Cache::remember('user_otp_code_' . $phoneNumber , 180 , function () use ($otp) {
+            return $otp;
         });
 
-        //TODO : SEND OTP SMS
+        //todo : send otp code here
 
         return [
             'status' => true,
-            'data' => ['otp' => $otp], // TODO : Remove THIS AFTER ADDING SMS
-            'message' => __('auth.otp_send_successfully'),
+            'message' => __('auth.otp_login_code_send_successfully'),
+            'data' => ['code' => $otp],
         ];
     }
 
     public function register(array $data) :array
     {
-        $hasSent = Cache::get('otp_for_number_' . $data['phone_number']);
+        $hasSent = Cache::get('user_otp_for_number_' . $data['phone_number']);
 
         if (is_null($hasSent)) {
             return [
@@ -68,23 +59,6 @@ class AuthService
                 'token' => $user->createToken('main')->plainTextToken,
                 'user' => new UserDataResource($user),
             ],
-        ];
-    }
-
-    public function sendLoginCode(string $phoneNumber) :array
-    {
-        Cache::forget('otp_login_' . $phoneNumber);
-
-        $otp = rand(100000, 999999);
-
-        Cache::remember('otp_login_' . $phoneNumber , 180 , function () use ($otp) {
-            return $otp;
-        });
-
-        return [
-            'status' => true,
-            'message' => __('auth.otp_login_code_send_successfully'),
-            'data' => ['code' => $otp],
         ];
     }
 
