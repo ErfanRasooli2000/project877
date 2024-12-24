@@ -118,57 +118,6 @@ class AuthController extends Controller
     }
 
 
-    /**
-     * @param RegisterUserGetOtpRequest $request
-     * @return JsonResponse
-     *
-     *
-     * @OA\Post(
-     *     path="/api/v1/users/authentication/register-get-otp",
-     *     tags={"User - Authentication"},
-     *     summary="Register Send Code",
-     *     description="Register Send Code",
-     *     @OA\Parameter(
-     *         name="Accept",
-     *         in="header",
-     *         required=true,
-     *         @OA\Schema(type="string", default="application/json"),
-     *     ),
-     *     @OA\RequestBody(
-     *         required=true,
-     *         @OA\JsonContent(
-     *             required={"phone_number","first_name","last_name"},
-     *             @OA\Property(property="phone_number" , type="string" , example="09036583793"),
-     *             @OA\Property(property="first_name" , type="string" , example="نام"),
-     *             @OA\Property(property="last_name" , type="string" , example="نام خانوادگی"),
-     *         )
-     *     ),
-     *     @OA\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @OA\JsonContent(
-     *              @OA\Property(property="status", type="boolean", example=true),
-     *              @OA\Property(property="message", type="string", example=""),
-     *              @OA\Property(property="meta", type="string", nullable=true, example=null)
-     *          )
-     *      ),
-     *      @OA\Response(
-     *           response=422,
-     *           description="Validation Error",
-     *      ),
-     *      @OA\Response(
-     *           response=401,
-     *           description="Authorization Error",
-     *      ),
-     * )
-     */
-    public function registerGetOtp(RegisterUserGetOtpRequest $request) :JsonResponse
-    {
-        $result = $this->service->sendRegisterLoginCode($request->validated());
-
-        return $this->resultResponse($result);
-    }
-
 
     /**
      * @param RegisterUserRequest $request
@@ -189,9 +138,14 @@ class AuthController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"phone_number","otp"},
+     *             required={"phone_number","otp","first_name","last_name","city_id","province_id","address"},
      *             @OA\Property(property="phone_number" , type="string" , example="09036583793"),
      *             @OA\Property(property="otp" , type="string" , example="123654"),
+     *             @OA\Property(property="first_name" , type="string" , example="erfan"),
+     *             @OA\Property(property="last_name" , type="string" , example="rasooli"),
+     *             @OA\Property(property="city_id" , type="string" , example="1"),
+     *             @OA\Property(property="province_id" , type="string" , example="1"),
+     *             @OA\Property(property="address" , type="string" , example="some where around us"),
      *         )
      *     ),
      *     @OA\Response(

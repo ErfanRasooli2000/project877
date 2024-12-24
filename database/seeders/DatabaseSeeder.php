@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Admin\AdminManagement\Admins\Database\Seeders\AdminSeeder;
 use Modules\City\Database\Seeders\CitySeeder;
 use Modules\City\Database\Seeders\ProvinceSeeder;
-use Modules\UserManagement\Users\Database\Seeders\AdminSeeder;
-use Modules\UserManagement\Users\Models\Admin;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

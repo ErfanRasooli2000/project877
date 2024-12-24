@@ -11,4 +11,13 @@ class UserRepository extends BaseWithAllQueriesRepository implements UserReposit
     public function __construct(
         protected User $model
     ){}
+
+    public function checkUserExists(string $number): bool
+    {
+        return $this->model
+            ->newQuery()
+            ->where('phone_number', $number)
+            ->withTrashed()
+            ->exists();
+    }
 }

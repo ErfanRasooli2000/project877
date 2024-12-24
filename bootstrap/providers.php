@@ -1,5 +1,6 @@
 <?php
 
+use Modules\Address\Providers\AddressServiceProvider;
 use Modules\Admin\AdminAcl\RolePermissions\Providers\RolePermissionServiceProvider;
 use Modules\Admin\AdminManagement\Admins\Providers\AdminServiceProvider;
 use Modules\City\Providers\ProvinceServiceProvider;
@@ -16,4 +17,5 @@ return [
     ProvinceServiceProvider::class,
     UserServiceProvider::class,
     AdminAuthServiceProvider::class,
+    AddressServiceProvider::class,
 ];

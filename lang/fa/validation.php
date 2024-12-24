@@ -49,7 +49,7 @@ return [
     "email"            => "فرمت :attribute معتبر نیست.",
     'ends_with'        => ':attribute باید با این مقدار تمام شود: :values.',
     "enum"             => ":attribute انتخاب شده، معتبر نیست.",
-    "exists"           => ":attribute انتخاب شده، معتبر نیست.",
+    "exists"           => ":attribute انتخاب شده، وجود ندارد.",
     'file' 	       => 'فیلد :attribute باید فایل باشد.',
     "filled"           => "فیلد :attribute الزامی است",
     'gt' => [

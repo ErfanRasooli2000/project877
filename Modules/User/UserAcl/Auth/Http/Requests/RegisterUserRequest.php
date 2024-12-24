@@ -24,7 +24,12 @@ class RegisterUserRequest extends FormRequest
     {
         return [
             'phone_number' => ['required' , 'unique:users,phone_number' , new IranMobileNumber],
-            'otp' => ['required' , 'numeric']
+            'otp' => ['required' , 'numeric'],
+            'first_name' => ['required' , 'string'],
+            'last_name' => ['required' , 'string'],
+            'city_id' => ['required' , 'exists:cities,id'],
+            'province_id' => ['required' , 'exists:provinces,id'],
+            'address' => ['required' , 'string'],
         ];
     }
 

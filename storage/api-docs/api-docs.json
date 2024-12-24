@@ -1721,175 +1721,14 @@
                 ]
             }
         },
-        "/api/v1/users/authentication/register-get-otp": {
-            "post": {
-                "tags": [
-                    "User - Authentication"
-                ],
-                "summary": "Register Send Code",
-                "description": "Register Send Code",
-                "operationId": "4ed115fc6843693c657f0105aed7fe3b",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "default": "application/json"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "phone_number",
-                                    "first_name",
-                                    "last_name"
-                                ],
-                                "properties": {
-                                    "phone_number": {
-                                        "type": "string",
-                                        "example": "09036583793"
-                                    },
-                                    "first_name": {
-                                        "type": "string",
-                                        "example": "نام"
-                                    },
-                                    "last_name": {
-                                        "type": "string",
-                                        "example": "نام خانوادگی"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "boolean",
-                                            "example": true
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "meta": {
-                                            "type": "string",
-                                            "example": null,
-                                            "nullable": true
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error"
-                    },
-                    "401": {
-                        "description": "Authorization Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/users/authentication/register": {
-            "post": {
-                "tags": [
-                    "User - Authentication"
-                ],
-                "summary": "Register User",
-                "description": "Register User",
-                "operationId": "994ee15fcb9dca0a978d29281215d51c",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "default": "application/json"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "phone_number",
-                                    "otp"
-                                ],
-                                "properties": {
-                                    "phone_number": {
-                                        "type": "string",
-                                        "example": "09036583793"
-                                    },
-                                    "otp": {
-                                        "type": "string",
-                                        "example": "123654"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "boolean",
-                                            "example": true
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": ""
-                                        },
-                                        "meta": {
-                                            "type": "string",
-                                            "example": null,
-                                            "nullable": true
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error"
-                    },
-                    "401": {
-                        "description": "Authorization Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/users/authentication/send-login-code": {
+        "/api/v1/users/authentication/send-otp-code": {
             "post": {
                 "tags": [
                     "User - Authentication"
                 ],
                 "summary": "Send Login Code",
                 "description": "Send Login Code",
-                "operationId": "ba9d042dd7c27b32ff3b5f00297703fb",
+                "operationId": "170578aa84e686ad85778ee66e6ea68b",
                 "parameters": [
                     {
                         "name": "Accept",
@@ -1963,6 +1802,84 @@
                 "summary": "login User",
                 "description": "login User",
                 "operationId": "16a1459b5b31d31dd213488e18582ec8",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "phone_number",
+                                    "otp"
+                                ],
+                                "properties": {
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "09036583793"
+                                    },
+                                    "otp": {
+                                        "type": "string",
+                                        "example": "123654"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "meta": {
+                                            "type": "string",
+                                            "example": null,
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error"
+                    },
+                    "401": {
+                        "description": "Authorization Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/authentication/register": {
+            "post": {
+                "tags": [
+                    "User - Authentication"
+                ],
+                "summary": "Register User",
+                "description": "Register User",
+                "operationId": "994ee15fcb9dca0a978d29281215d51c",
                 "parameters": [
                     {
                         "name": "Accept",

@@ -20,8 +20,8 @@ class UserDataResource extends JsonResource
             'last_name' => $this->last_name,
             'name' => $this->first_name . " " . $this->last_name,
             'phone_number' => $this->phone_number,
-            'permissions' => $this->getCaslAbilityRules(),
-            'roles' => $this->getRoleNames()->toArray()
+//            'permissions' => $this->getCaslAbilityRules(),
+//            'roles' => $this->getRoleNames()->toArray()
         ];
     }
 }
