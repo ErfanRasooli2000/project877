@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Seeders\RoleSeeder;
 use Modules\Admin\AdminManagement\Admins\Database\Seeders\AdminSeeder;
 use Modules\City\Database\Seeders\CitySeeder;
 use Modules\City\Database\Seeders\ProvinceSeeder;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminSeeder::class,
+            RoleSeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
         ]);

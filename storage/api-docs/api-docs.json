@@ -1898,7 +1898,13 @@
                             "schema": {
                                 "required": [
                                     "phone_number",
-                                    "otp"
+                                    "otp",
+                                    "first_name",
+                                    "last_name",
+                                    "role",
+                                    "city_id",
+                                    "province_id",
+                                    "address"
                                 ],
                                 "properties": {
                                     "phone_number": {
@@ -1908,6 +1914,30 @@
                                     "otp": {
                                         "type": "string",
                                         "example": "123654"
+                                    },
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "erfan"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "rasooli"
+                                    },
+                                    "role": {
+                                        "type": "string",
+                                        "example": "user or salonOwner"
+                                    },
+                                    "city_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "province_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "some where around us"
                                     }
                                 },
                                 "type": "object"

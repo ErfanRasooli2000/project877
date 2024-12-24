@@ -18,6 +18,8 @@ class Admin extends Authenticatable
     use HasFactory, Notifiable , CaslAbility , HasApiTokens ,
         HasPermissions , HasRoles , SoftDeletes , HasScopes;
 
+    protected $guard_name = 'admin-api';
+
     /**
      * The attributes that are mass assignable.
      *

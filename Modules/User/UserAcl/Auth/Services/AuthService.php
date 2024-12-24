@@ -5,6 +5,7 @@ namespace Modules\User\UserAcl\Auth\Services;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Modules\Address\Database\Repositories\Contracts\AddressRepositoryInterface;
+use Modules\Admin\AdminAcl\RolePermissions\Database\Repositories\Contracts\RoleRepositoryInterface;
 use Modules\User\UserManagement\Database\Repositories\Contracts\UserRepositoryInterface;
 use Modules\User\UserManagement\Http\Resources\UserDataResource;
 
@@ -64,12 +65,16 @@ class AuthService
 
         \DB::transaction(function () use ($data,&$user) {
 
-            $address = $this->addressRepository->create($data);
+            $role = $data['role'];
 
-            $data['address_id'] = $address->id;
+            if ($role == 'salonOwner') {
+
+                $address = $this->addressRepository->create($data);
+                $data['address_id'] = $address->id;
+            }
 
             $user = $this->userRepository->create($data);
-
+            $user->assignRole($role);
         });
 
 

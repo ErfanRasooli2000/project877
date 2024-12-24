@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Acl\RolePermissions\Http\Controllers\RoleController;
+use Modules\Admin\AdminAcl\RolePermissions\Http\Controllers\RoleController;
 
 Route::get('index' , [RoleController::class , 'index']);
 

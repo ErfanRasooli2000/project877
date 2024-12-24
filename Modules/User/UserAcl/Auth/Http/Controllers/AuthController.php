@@ -138,11 +138,12 @@ class AuthController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"phone_number","otp","first_name","last_name","city_id","province_id","address"},
+     *             required={"phone_number","otp","first_name","last_name","role","city_id","province_id","address"},
      *             @OA\Property(property="phone_number" , type="string" , example="09036583793"),
      *             @OA\Property(property="otp" , type="string" , example="123654"),
      *             @OA\Property(property="first_name" , type="string" , example="erfan"),
      *             @OA\Property(property="last_name" , type="string" , example="rasooli"),
+     *             @OA\Property(property="role" , type="string" , example="user or salonOwner"),
      *             @OA\Property(property="city_id" , type="string" , example="1"),
      *             @OA\Property(property="province_id" , type="string" , example="1"),
      *             @OA\Property(property="address" , type="string" , example="some where around us"),

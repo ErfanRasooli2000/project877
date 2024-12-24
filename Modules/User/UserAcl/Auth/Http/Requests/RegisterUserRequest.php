@@ -27,9 +27,10 @@ class RegisterUserRequest extends FormRequest
             'otp' => ['required' , 'numeric'],
             'first_name' => ['required' , 'string'],
             'last_name' => ['required' , 'string'],
-            'city_id' => ['required' , 'exists:cities,id'],
-            'province_id' => ['required' , 'exists:provinces,id'],
-            'address' => ['required' , 'string'],
+            'role' => ['required' , 'string' , 'in:salonOwner,user'],
+            'city_id' => ['required_if:role,salonOwner' , 'exists:cities,id'],
+            'province_id' => ['required_if:role,salonOwner' , 'exists:provinces,id'],
+            'address' => ['required_if:role,salonOwner' , 'string'],
         ];
     }
 
